@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="AdvancedActions.exe" version="1.0.0.0" publicKeyToken="ef6947fc02dca824" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="AdvancedActions" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="AdvancedActions.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="2.0.50727.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AdvancedActions.exe" size="44432">
+      <assemblyIdentity name="AdvancedActions" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>l7740vHUNbOIqyUTG4Kawc3w5ac=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="AdvancedActions.exe.config" size="117">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>a3Forh+i+nzyaONrpGeK7Sudu10=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=CAMPUS\aalami" issuerKeyHash="379584af0d3b1855bf3f2f71088e3d027b3c7a20" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>Zj1KgmmGPVwmiL0ifmqPfYRd4Vo=</DigestValue></Reference></SignedInfo><SignatureValue>UTak3QOjFKUwPH7QVcvab71yECoZdclNx4pJ0jL9906Drw4yZ864vYMNRVnoBtWo+aPLZn5goc11asD35K+Tsw3q1Eovi2reukouSXSfMzweH5enYmagRwRSyMkQWzWjiTJoFTjXEgjo++nE9UimZYT7KGzZ1I1PrsB7tXbaOaw=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>vTB8lWiVLj+heUadmINtIDbIK2up6vKeAqBkdXIqbY6ELx16l5uLDGSrGzdTZOj3zgycP3ATZHx+0RYUGJ/HJjr8TgmubQCOGBAj45cfJ9eiHaX2tmOImZiVu2vxxlGQV1xEs71Ph5/oNfjk/4UEZ2Vk9bDLtMf1+boNNXUidiE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="5ae15d847d8f6a7e22bd88265c3d8669824a3d66" Description="" Url=""><as:assemblyIdentity name="AdvancedActions.exe" version="1.0.0.0" publicKeyToken="ef6947fc02dca824" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=CAMPUS\aalami</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>EvXDBaC8Hh8E/SE4D2o8XLA66cc=</DigestValue></Reference></SignedInfo><SignatureValue>GbA0GUYWF2pQ/OLWg9roth4Zm0O/Lm59Q+9BeZjxkbh9zQZInbbpTSkp00iEiHTAKs/OOH9pjy006lnHK/es1T/dQ+7exGxwKON/aWawEDuN6HbBuSTOHGRuN3Q6h36CFsd13Rf6Aox8OFIsIa5AVTdHqs6xBgHYCR2B+ot5330=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>vTB8lWiVLj+heUadmINtIDbIK2up6vKeAqBkdXIqbY6ELx16l5uLDGSrGzdTZOj3zgycP3ATZHx+0RYUGJ/HJjr8TgmubQCOGBAj45cfJ9eiHaX2tmOImZiVu2vxxlGQV1xEs71Ph5/oNfjk/4UEZ2Vk9bDLtMf1+boNNXUidiE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQVMOwepchNIZMBa/Gg0fVkTANBgkqhkiG9w0BAQUFADAlMSMwIQYDVQQDHhoAQwBBAE0AUABVAFMAXABhAGEAbABhAG0AaTAeFw0xODA4MDQxNzE4MTVaFw0xOTA4MDQyMzE4MTVaMCUxIzAhBgNVBAMeGgBDAEEATQBQAFUAUwBcAGEAYQBsAGEAbQBpMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9MHyVaJUuP6F5Rp2Yg20gNsgra6nq8p4CoGR1ciptjoQvHXqXm4sMZKsbN1Nk6PfODJw/cBNkfH7RFhQYn8cmOvxOCa5tAI4YECPjlx8n16Idpfa2Y4iZmJW7a/HGUZBXXESzvU+Hn+g1+OT/hQRnZWT1sMu0x/X5ug01dSJ2IQIDAQABMA0GCSqGSIb3DQEBBQUAA4GBACvTJRiWbEmdn4Kp1BNOvg7ZI0mFMHu4siF6dTB8Jw+YgSNKnKWUXOP3Bpj+X7kzuz5hgWSmJ6kq+E2Jhu38nJhWmib4ndBKERvcQsa+VxnCcbwscNcihy+9wQ+jewpnyYfqTzPxQDrUWgXKA268vufEimCzafPCAHF7GDjpHH5L</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

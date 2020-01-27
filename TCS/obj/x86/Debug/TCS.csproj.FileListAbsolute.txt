@@ -1,0 +1,13 @@
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TDK\TCS.exe.config
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TDK\TCS.exe.manifest
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TDK\TCS.application
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TDK\TCS.exe
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TDK\TCS.pdb
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.TCSForm.resources
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.Properties.Resources.resources
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.exe.manifest
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.application
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.exe
+C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Debug\TCS.pdb
