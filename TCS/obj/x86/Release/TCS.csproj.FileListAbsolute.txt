@@ -11,3 +11,18 @@ C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Rele
 C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Release\TCS.application
 C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Release\TCS.exe
 C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Release\TCS.pdb
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.csprojAssemblyReference.cache
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.TCSUIForm.resources
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.Form2.resources
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.Properties.Resources.resources
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.csproj.GenerateResource.cache
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.exe
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.pdb
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TDK\TCS.exe.config
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TDK\TCS.exe.manifest
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TDK\TCS.application
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TDK\TCS.exe
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TDK\TCS.pdb
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.exe.manifest
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.application
+C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.FormFinished.resources
