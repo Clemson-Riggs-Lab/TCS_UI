@@ -20,7 +20,6 @@ namespace TCS
 
         private void FormFinished_Load(object sender, EventArgs e)
         {
-            FinishedLabel.Text = "You are now finished! \n You may now exit this window";
         }
 
         private void TCS_FormClosed(object sender, FormClosedEventArgs e)

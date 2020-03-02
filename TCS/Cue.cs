@@ -17,5 +17,11 @@ public class Cue
     public int EndingPulseDuration;
     public int StartChangeAfterPulseNumber;
     public int EndChangeAfterPulseNumber;
+    public string Instructions;
+    public int FirstTactor;
+    public int SecondTactor;
+    public int ThirdTactor;
+    public int DelayWithin;
+    public int DelayBetween;
     public DateTime presentTime;
 }

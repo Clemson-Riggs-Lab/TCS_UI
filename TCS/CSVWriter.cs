@@ -18,12 +18,12 @@ public class CsvWriter
                                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop), 
                                 "TimeOfCuePresenting" + DateTime.Now.ToString("MM-dd-yy-H-mm")+ ".csv"
                                );
-
-
+        Console.WriteLine(filepath);
     } 
 
     void SetUp()
     {
+        Console.WriteLine("set up correctly");
         // Creating First row of titles manually..
         string[] rowDataTemp = new string[19];
         rowDataTemp[0] = "Trial";
@@ -47,7 +47,7 @@ public class CsvWriter
         rowDataTemp[18] = "End Change After Pulse Number";
         rowData.Add(rowDataTemp);
     }
-    public void AddEvent(int Trial, string StartTime, string EndTime, string Response, Cue CurrentCue)
+    public void AddEvent(int Trial, string Response, string StartTime, string EndTime, Cue CurrentCue)
     {
         string[] rowDataTemp = new string[19];
         rowDataTemp[0] = Trial.ToString();

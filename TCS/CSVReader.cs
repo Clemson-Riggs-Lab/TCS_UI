@@ -50,10 +50,18 @@ public class CSVReader
             int.TryParse(grid[i][12], out row.EndingPulseDuration);
             int.TryParse(grid[i][13], out row.StartChangeAfterPulseNumber);
             int.TryParse(grid[i][14], out row.EndChangeAfterPulseNumber);
+
+            row.Instructions = grid[i][15];
+            int.TryParse(grid[i][16], out row.FirstTactor);
+            int.TryParse(grid[i][17], out row.SecondTactor);
+            int.TryParse(grid[i][18], out row.ThirdTactor);
+            int.TryParse(grid[i][19], out row.DelayWithin);
+            int.TryParse(grid[i][20], out row.DelayBetween);
+
             if (timed)
             {
                // DateTime.TryParse(grid[i][15], out row.presentTime);
-                row.presentTime= startTime.Add(TimeSpan.Parse(grid[i][15]));
+                row.presentTime= startTime.Add(TimeSpan.Parse(grid[i][21]));
             }
             rowList.Add(row);
         }

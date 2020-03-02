@@ -13,14 +13,12 @@ namespace TCS
     public partial class Form2 : Form
     {
         int current_trial_no = 1;
-        string instructions = "";
-        string response; //should include number checks ??
-
         List<Cue> cuesList = null;
         Cue currentCue = null;
         int NumberOfCues;
         int CurrentCueIndex = 0;
         CsvWriter csvWriter = new CsvWriter();
+        bool played = false;
 
         public int ConnectedDeviceID;
         public static bool activeAction = false;
@@ -33,33 +31,71 @@ namespace TCS
 
         public Form2(int ConnectedDevice, List<Cue> cuesList, int NumberOfCues)
         {
+
+            InitializeComponent();
+            //Tdk.TdkInterface.InitializeTI();
+
             this.ConnectedDeviceID = ConnectedDevice;
             this.cuesList = cuesList;
             this.NumberOfCues = NumberOfCues;
+            Console.WriteLine(NumberOfCues);
+            Console.WriteLine(cuesList.Count);
 
-            TrialNumberLabel.Text = "Trial #: " + current_trial_no;
-            InstructionsTextbox.Text = instructions;
-
-            InitializeComponent();
+            string data_concept = cuesList[0].Instructions;
+            this.InstructionsTextbox.Text = "Please indicate what magnitude of the " + data_concept +
+                " the vibration seems to represent, by assigning a number by estimating its ’distance’, " +
+                "relative to your subjective impression of the first vibration that you felt.";
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (cuesList != null && CurrentCueIndex < NumberOfCues)
+            if (cuesList != null && CurrentCueIndex < NumberOfCues-1)
             {
-                // save response into csv
-                response = ResponseTextbox.Text;
-                csvWriter.AddEvent(current_trial_no, startTime.ToString("HH:mm:ss:ffff"), endTime.ToString("HH:mm:ss:ffff"), response, currentCue);
-                
-                // increment tactor row 
-                CurrentCueIndex++;
-                current_trial_no++;
 
-                //update trial no.
-                TrialNumberLabel.Text = current_trial_no.ToString();
+                if (played==false)
+                {
+                    WarningsLabel.Text = "Please play the cue before proceeding.";
+                }
+                else if (ResponseTextbox.Text == "")
+                {
+                    WarningsLabel.Text = "Please enter a score";
+                }
+                else
+                {
+                    WarningsLabel.Text = "";
+
+                    // save response into csv
+                    int trial = current_trial_no;
+                    string response = ResponseTextbox.Text;
+                    //startTime = startTime.ToString("HH:mm:ss:ffff");
+                    //endTime = endTime.ToString("HH:mm:ss:ffff");
+
+                    //int Trial, string Response, string StartTime, string EndTime, Cue CurrentCue
+                    csvWriter.AddEvent(trial, response, startTime.ToString("HH:mm:ss:ffff"), endTime.ToString("HH:mm:ss:ffff"), currentCue);
+
+                    if (current_trial_no==1)
+                    {
+                        Trial1Score.Text = "Trial 1 Score: " + response;
+                    }
+
+                    // increment tactor row 
+                    CurrentCueIndex++;
+                    current_trial_no++;
+
+                    //update trial no.
+                    TrialNumberLabel.Text = "Trial #: " + current_trial_no;
+                    ResponseTextbox.Text = "";
+
+                    Console.WriteLine(TrialNumberLabel.Text);
+                    Console.WriteLine(CurrentCueIndex);
+                    Console.WriteLine(ResponseTextbox.Text);
+
+                    played = false;
+                }
             }
             else
             {
+                Console.WriteLine("cuesList is null or CurrentCueIndex < NumberOfCues");
                 this.Visible = false;
                 var FormFinished = new FormFinished(ConnectedDeviceID);
                 FormFinished.Show();
@@ -68,7 +104,9 @@ namespace TCS
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            startTime = DateTime.Now;
+            played = true;
+            WarningsLabel.Text = "";
+            this.startTime = DateTime.Now;
             int cueIndex = CurrentCueIndex;
             activeAction = true;
             this.currentCue = cuesList[cueIndex];
@@ -254,7 +292,7 @@ namespace TCS
 
             }
 
-            else
+            else if (currentCue.TypeoOfChange == "Int+Spat")
             {   //Intensity + Spatial
                 for (int i = 0; i < currentCue.StartChangeAfterPulseNumber + 1; i++)
                 {
@@ -300,7 +338,35 @@ namespace TCS
                 }
             }
 
-            endTime = DateTime.Now;
+            else
+            { //Motion
+                int firsttactor = currentCue.FirstTactor;
+                int secondtactor = currentCue.SecondTactor;
+                int thirdtactor = currentCue.ThirdTactor;
+
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
+                        Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        if (i == 0)
+                            Tdk.TdkInterface.Pulse(0, firsttactor, currentCue.StartingPulseDuration, 0);
+                        if (i == 1)
+                            Tdk.TdkInterface.Pulse(0, secondtactor, currentCue.StartingPulseDuration, 0);
+                        if (i == 2)
+                            Tdk.TdkInterface.Pulse(0, thirdtactor, currentCue.StartingPulseDuration, 0);
+                        toggleOn(0, currentCue.DelayWithin);
+                        if (activeAction == false)
+                        {
+                            break;
+                        }
+                    }
+                    toggleOn(0, currentCue.DelayBetween);
+                }
+            }
+
+            this.endTime = DateTime.Now;
         }
 
         private void toggleOn(int id, int delay)
@@ -308,6 +374,16 @@ namespace TCS
             //tactorOn[id] = true;
             Thread.Sleep(delay);
             //tactorOn[id] = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
 
         //public void InitTimer()
