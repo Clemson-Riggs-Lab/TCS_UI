@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TCS.exe" size="1478144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TCS.exe" size="1478656">
       <assemblyIdentity name="TCS" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Se6gLQe4xo3Seo3XaqE0QxMqSYU=</dsig:DigestValue>
+        <dsig:DigestValue>WhiAN1fEvg8qZ25P8bm4hxny32I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

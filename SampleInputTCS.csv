@@ -1,3 +1,0 @@
-Newscreen#,Cue#forinput,Typeofchange,StartingGain,StartingFrequency,EndingGain,EndingFrequency,StartTactorlocation,EndingtactorLocation,StartingISI,EndingISI,StartingPulseDuration,EndingPulseDuration,StartChangeafterpulse#,EndChangeafterpulse#,Present Time
-1,1,Intensity,225,2500,69,2500,1,-,500,-,500,-,4,5,0:00:30
-2,1,Temporal,147,2500,147,-,2,-,200,800,500,500,3,-,0:00:37
