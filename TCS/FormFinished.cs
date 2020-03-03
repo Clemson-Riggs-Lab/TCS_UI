@@ -18,10 +18,6 @@ namespace TCS
             InitializeComponent();
         }
 
-        private void FormFinished_Load(object sender, EventArgs e)
-        {
-        }
-
         private void TCS_FormClosed(object sender, FormClosedEventArgs e)
         {
             //closes up the connection to the tactor device with ConnectedBoardID
@@ -29,6 +25,7 @@ namespace TCS
             //cleans up everyting associated witht the TActionManager. Unloads any TActions loaded
             CheckTDKErrors(Tdk.TdkInterface.ShutdownTI());
         }
+
         private void CheckTDKErrors(int ret)
         {
             //if a tdk method returns less then zero then we should display the last error

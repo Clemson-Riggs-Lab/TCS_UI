@@ -107,7 +107,6 @@
             this.Trial1Score.Size = new System.Drawing.Size(96, 15);
             this.Trial1Score.TabIndex = 6;
             this.Trial1Score.Text = "Trial 1 Score: __";
-            this.Trial1Score.Click += new System.EventHandler(this.label1_Click);
             // 
             // InstructionsLabel
             // 
@@ -145,7 +144,6 @@
             this.Controls.Add(this.TrialNumberLabel);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

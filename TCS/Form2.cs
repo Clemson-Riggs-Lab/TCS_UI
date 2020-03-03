@@ -414,15 +414,6 @@ namespace TCS
             //tactorOn[id] = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
 
         //public void InitTimer()
         //{

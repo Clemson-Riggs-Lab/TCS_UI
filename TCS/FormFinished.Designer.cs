@@ -64,7 +64,6 @@
             this.Name = "FormFinished";
             this.Text = "FormFinished";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TCS_FormClosed);
-            this.Load += new System.EventHandler(this.FormFinished_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

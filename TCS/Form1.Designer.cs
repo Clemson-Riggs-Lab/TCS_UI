@@ -36,7 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.beginButton = new System.Windows.Forms.Button();
+            this.BeginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DiscoverButton
@@ -78,7 +78,6 @@
             this.outputCSVTextbox.Size = new System.Drawing.Size(320, 20);
             this.outputCSVTextbox.TabIndex = 17;
             this.outputCSVTextbox.Text = "check if they included \".csv\"";
-            this.outputCSVTextbox.TextChanged += new System.EventHandler(this.outputCSVTextbox_TextChanged);
             // 
             // label4
             // 
@@ -108,23 +107,23 @@
             this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 21;
             // 
-            // beginButton
+            // BeginButton
             // 
-            this.beginButton.Enabled = false;
-            this.beginButton.Location = new System.Drawing.Point(27, 340);
-            this.beginButton.Name = "beginButton";
-            this.beginButton.Size = new System.Drawing.Size(320, 50);
-            this.beginButton.TabIndex = 23;
-            this.beginButton.Text = "Begin Experiment";
-            this.beginButton.UseVisualStyleBackColor = true;
-            this.beginButton.Click += new System.EventHandler(this.beginButton_Click);
+            this.BeginButton.Enabled = false;
+            this.BeginButton.Location = new System.Drawing.Point(27, 340);
+            this.BeginButton.Name = "BeginButton";
+            this.BeginButton.Size = new System.Drawing.Size(320, 50);
+            this.BeginButton.TabIndex = 23;
+            this.BeginButton.Text = "Begin Experiment";
+            this.BeginButton.UseVisualStyleBackColor = true;
+            this.BeginButton.Click += new System.EventHandler(this.BeginButton_Click);
             // 
             // TCSUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 411);
-            this.Controls.Add(this.beginButton);
+            this.Controls.Add(this.BeginButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -135,7 +134,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TCSUIForm";
             this.Text = "Tactile Cues Sim - User Interaction";
-            this.Load += new System.EventHandler(this.TCSUIForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,7 +147,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button beginButton;
+        private System.Windows.Forms.Button BeginButton;
     }
 }
 
