@@ -26,3 +26,18 @@ C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TDK\TCS.pdb
 C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.exe.manifest
 C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.application
 C:\Users\Meherin\Downloads\AAACS\C#\Tactile Cues\TCS_UI\TCS\obj\x86\Release\TCS.FormFinished.resources
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TDK\TCS.exe.config
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TDK\TCS.exe.manifest
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TDK\TCS.application
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TDK\TCS.exe
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TDK\TCS.pdb
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.csprojAssemblyReference.cache
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.TCSUIForm.resources
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.Form2.resources
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.FormFinished.resources
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.Properties.Resources.resources
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.csproj.GenerateResource.cache
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.exe.manifest
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.application
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.exe
+C:\Users\RiggsLab\Source\Repos\TCS_UI\TCS\obj\x86\Release\TCS.pdb

@@ -21,7 +21,6 @@ namespace TCS
         bool played = false;
 
         public int ConnectedDeviceID;
-        public static bool activeAction = false;
         DateTime startTime;
         DateTime endTime;
 
@@ -126,8 +125,24 @@ namespace TCS
             WarningsLabel.Text = "";
             this.startTime = DateTime.Now;
             int cueIndex = CurrentCueIndex;
-            activeAction = true;
             this.currentCue = cuesList[cueIndex];
+
+            int startChange = currentCue.StartChangeAfterPulseNumber;
+            string typeOfChange = currentCue.TypeoOfChange;
+
+            //tactors
+            int tactor = currentCue.StartingTactorLocation;
+            int tactor2 = currentCue.EndingTactorLocation;
+            //motion tactors
+            int firsttactor = currentCue.StartingTactorLocation;
+            int secondtactor = currentCue.MiddleTactorLocation;
+            int thirdtactor = currentCue.EndingTactorLocation;
+            //parameters
+            int frequency = currentCue.StartingFrequency;
+            int pulseDuration = currentCue.StartingPulseDuration;
+            int pulseDuration2 = currentCue.EndingPulseDuration;
+            int gain = currentCue.StartingGain;
+
 
             int startPulseBreak = currentCue.StartingPulseDuration + currentCue.StartingISI;
             int endPulseBreak = currentCue.EndingPulseDuration + currentCue.EndingISI;
@@ -141,244 +156,170 @@ namespace TCS
             }
 
 
-            if (currentCue.TypeoOfChange == "Temporal")
+            if (typeOfChange == "Temporal")
             {   //Temporal
-                for (int i = 0; i < currentCue.StartChangeAfterPulseNumber; i++)
+                for (int i = 0; i < startChange; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
                 }
-                for (int i = 0; i < 8 - currentCue.StartChangeAfterPulseNumber; i++)
+                for (int i = 0; i < 8 - startChange; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.EndingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.EndingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration2);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration2, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, endPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.EndingPulseDuration, 0);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration2, 0);
                 }
             }
 
-            else if (currentCue.TypeoOfChange == "Spatial")
+            else if (typeOfChange == "Spatial")
             {   //Spatial
-                for (int i = 0; i < currentCue.StartChangeAfterPulseNumber; i++)
+                for (int i = 0; i < startChange; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
                 }
-                for (int i = 0; i < 8 - currentCue.StartChangeAfterPulseNumber; i++)
+                for (int i = 0; i < 8 - startChange; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.EndingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.EndingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor2, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor2, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.EndingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor2, pulseDuration, 0);
                 }
             }
 
-            else if (currentCue.TypeoOfChange == "Intensity")
+            else if (typeOfChange == "Intensity")
             {   //Intensity
-                for (int i = 0; i < currentCue.StartChangeAfterPulseNumber + 1; i++)
+                for (int i = 0; i < startChange + 1; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
 
                 }
                 for (int i = 0; i < transitionPulses; i++)
                 {
-                    currentCue.StartingGain = currentCue.StartingGain + Convert.ToInt32(gainIncrement);
-                    currentCue.StartingFrequency = currentCue.StartingFrequency + Convert.ToInt32(freqIncrement);
+                    gain = gain + Convert.ToInt32(gainIncrement);
+                    frequency = frequency + Convert.ToInt32(freqIncrement);
 
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
                 }
                 // for (int i = 0; i < 8 - currentCue.EndChangeAfterPulseNumber - 1 - transitionPulses; i++)// testing only ( problem where intensity only presents 7 vibrations instead of 8)
                 for (int i = 0; i < 8 - currentCue.EndChangeAfterPulseNumber - transitionPulses; i++)
                 {
 
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
                 }
             }
 
-            else if (currentCue.TypeoOfChange == "Int+Temp")
+            else if (typeOfChange == "Int+Temp")
             {   //Intensity + Temporal
 
-                for (int i = 0; i < currentCue.StartChangeAfterPulseNumber + 1; i++)
+                for (int i = 0; i < startChange + 1; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
                 }
                 for (int i = 0; i < transitionPulses; i++)
                 {
-                    currentCue.StartingGain = currentCue.StartingGain + Convert.ToInt32(gainIncrement);
-                    currentCue.StartingFrequency = currentCue.StartingFrequency + Convert.ToInt32(freqIncrement);
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.EndingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.EndingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    gain = gain + Convert.ToInt32(gainIncrement);
+                    frequency = frequency + Convert.ToInt32(freqIncrement);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration2);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration2, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, endPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.EndingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration2, 0);
+                    //Debug.Log ("Gain: " + gain);
                 }
-                for (int i = 0; i < 8 - currentCue.StartChangeAfterPulseNumber - 1 - transitionPulses; i++)
+                for (int i = 0; i < 8 - startChange - 1 - transitionPulses; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.EndingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.EndingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration2);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration2, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, endPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.EndingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration2, 0);
                 }
             }
 
-            else if (currentCue.TypeoOfChange == "Spat+Temp")
+            else if (typeOfChange == "Spat+Temp")
             { //Spatial + Temporal
-                for (int i = 0; i < currentCue.StartChangeAfterPulseNumber; i++)
+                for (int i = 0; i < startChange; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
 
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
                 }
-                for (int i = 0; i < 8 - currentCue.StartChangeAfterPulseNumber; i++)
+                for (int i = 0; i < 8 - startChange; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.EndingTactorLocation, currentCue.StartingFrequency, currentCue.EndingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.EndingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.EndingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor2, frequency, pulseDuration2);
+                    Tdk.TdkInterface.RampGain(0, tactor2, gain, gain, pulseDuration2, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, endPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.EndingTactorLocation, currentCue.EndingPulseDuration, 0);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor2, pulseDuration2, 0);
                 }
 
             }
 
-            else if (currentCue.TypeoOfChange == "Int+Spat")
+            else if (typeOfChange == "Int+Spat")
             {   //Intensity + Spatial
-                for (int i = 0; i < currentCue.StartChangeAfterPulseNumber + 1; i++)
+                for (int i = 0; i < startChange + 1; i++)
                 {
-                    if (i == currentCue.StartChangeAfterPulseNumber)
+                    if (i == startChange)
                     {
-                        currentCue.StartingTactorLocation = currentCue.EndingTactorLocation;
+                        tactor = tactor2;
                     }
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
                 }
                 for (int i = 0; i < transitionPulses; i++)
                 {
-                    currentCue.StartingGain = currentCue.StartingGain + Convert.ToInt32(gainIncrement);
-                    currentCue.StartingFrequency = currentCue.StartingFrequency + Convert.ToInt32(freqIncrement);
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.EndingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.EndingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    gain = gain + Convert.ToInt32(gainIncrement);
+                    frequency = frequency + Convert.ToInt32(freqIncrement);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor2, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor2, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.EndingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor2, pulseDuration, 0);
                 }
-                for (int i = 0; i < 8 - currentCue.StartChangeAfterPulseNumber - 1 - transitionPulses; i++)
+                for (int i = 0; i < 8 - startChange - 1 - transitionPulses; i++)
                 {
-                    Tdk.TdkInterface.ChangeFreq(0, currentCue.EndingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                    Tdk.TdkInterface.RampGain(0, currentCue.EndingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                    Tdk.TdkInterface.ChangeFreq(0, tactor2, frequency, pulseDuration);
+                    Tdk.TdkInterface.RampGain(0, tactor2, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                     toggleOn(0, startPulseBreak);
-                    Tdk.TdkInterface.Pulse(0, currentCue.EndingTactorLocation, currentCue.StartingPulseDuration, 0);
-                    //Debug.Log ("Gain: " + currentCue.StartingGain);
-                    if (activeAction == false)
-                    {
-                        break;
-                    }
+                    Tdk.TdkInterface.Pulse(0, tactor2, pulseDuration, 0);
                 }
             }
 
-            else
+            else if (typeOfChange == "Motion")
             { //Motion
-                int firsttactor = currentCue.StartingTactorLocation;
-                int secondtactor = currentCue.MiddleTactorLocation;
-                int thirdtactor = currentCue.EndingTactorLocation;
 
                 for (int j = 0; j < 3; j++)
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                        Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        //change freq of only the first one???
+                        Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, frequency, pulseDuration);
+                        Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                         if (i == 0)
-                            Tdk.TdkInterface.Pulse(0, firsttactor, currentCue.StartingPulseDuration, 0);
+                            Tdk.TdkInterface.Pulse(0, firsttactor, pulseDuration, 0);
                         if (i == 1)
-                            Tdk.TdkInterface.Pulse(0, secondtactor, currentCue.StartingPulseDuration, 0);
+                            Tdk.TdkInterface.Pulse(0, secondtactor, pulseDuration, 0);
                         if (i == 2)
-                            Tdk.TdkInterface.Pulse(0, thirdtactor, currentCue.StartingPulseDuration, 0);
+                            Tdk.TdkInterface.Pulse(0, thirdtactor, pulseDuration, 0);
                         toggleOn(0, currentCue.DelayWithin1);
-                        if (activeAction == false)
-                        {
-                            break;
-                        }
                     }
                     toggleOn(0, currentCue.DelayBetween1);
                 }
@@ -386,22 +327,26 @@ namespace TCS
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, currentCue.StartingFrequency, currentCue.StartingPulseDuration);
-                        Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, currentCue.StartingGain, currentCue.StartingGain, currentCue.StartingPulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, frequency, pulseDuration);
+                        Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                         if (i == 0)
-                            Tdk.TdkInterface.Pulse(0, firsttactor, currentCue.StartingPulseDuration, 0);
+                            Tdk.TdkInterface.Pulse(0, firsttactor, pulseDuration, 0);
                         if (i == 1)
-                            Tdk.TdkInterface.Pulse(0, secondtactor, currentCue.StartingPulseDuration, 0);
+                            Tdk.TdkInterface.Pulse(0, secondtactor, pulseDuration, 0);
                         if (i == 2)
-                            Tdk.TdkInterface.Pulse(0, thirdtactor, currentCue.StartingPulseDuration, 0);
+                            Tdk.TdkInterface.Pulse(0, thirdtactor, pulseDuration, 0);
                         toggleOn(0, currentCue.DelayWithin2);
-                        if (activeAction == false)
-                        {
-                            break;
-                        }
                     }
                     toggleOn(0, currentCue.DelayBetween2);
                 }
+            }
+
+            else
+            {
+                string error = "\"" + typeOfChange + "\"" +
+                    "is not a valid type of change. Was this a typo?";
+                Console.WriteLine(error);
+                WarningsLabel.Text = error;
             }
 
             this.endTime = DateTime.Now;
@@ -412,6 +357,11 @@ namespace TCS
             //tactorOn[id] = true;
             Thread.Sleep(delay);
             //tactorOn[id] = false;
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
 
 

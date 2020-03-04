@@ -1,4 +1,4 @@
 Trial,Cue#forinput,Typeofchange,Instructions,StartingGain,StartingFrequency,EndingGain,EndingFrequency,StartTactorlocation,MiddletactorLocation,EndingtactorLocation,StartingISI,EndingISI,StartingPulseDuration,EndingPulseDuration,StartChangeafterpulse#,EndChangeafterpulse#,DelayWithin1,DelayBetween1,DelayWithin1,DelayBetween2
-1,1,Intensity,hello,147,2500,105,2500,1,-,-,500,-,500,-,3,4,-,-,-,-
+1,1,Intensity,hello,147,2500,69,2500,1,-,-,500,-,500,-,3,4,-,-,-,-
 2,1,Temporal,-,147,2500,147,-,1,-,-,500,200,500,500,4,-,-,-,-,-
 3,1,Motion,-,147,2500,147,-,1,2,3,500,-,500,-,-,-,600,400,300,400
