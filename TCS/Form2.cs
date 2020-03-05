@@ -122,6 +122,11 @@ namespace TCS
         private void PlayButton_Click(object sender, EventArgs e)
         {
 
+            //DEBUGGING
+            Console.WriteLine(currentCue.TypeoOfChange);
+
+
+            #region Variables
 
             played = true;
             WarningsLabel.Text = "";
@@ -157,6 +162,8 @@ namespace TCS
                 gainIncrement = (currentCue.EndingGain - currentCue.StartingGain) / (transitionPulses);
                 freqIncrement = (currentCue.EndingFrequency - currentCue.StartingFrequency) / (transitionPulses);
             }
+
+            #endregion Variables
 
 
             if (typeOfChange == "Temporal")
