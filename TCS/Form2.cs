@@ -351,6 +351,30 @@ namespace TCS
                 }
             }
 
+            #region Modulation Testing
+
+            //else if (typeOfChange == "Modulation")
+            //{
+            //    for (int i = 0; i < startChange; i++)
+            //    {
+            //        Tdk.TdkInterface.ChangeFreq(0, tactor, 2500, pulseDuration);
+            //        Tdk.TdkInterface.ChangeFreq(0, 0xFF, 700, pulseDuration);
+            //        Tdk.TdkInterface.ChangeSigSource(0, tactor, 0x03, 0);
+            //        toggleOn(0, startPulseBreak);
+            //        Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
+            //    }
+            //    for (int i = 0; i < 8 - startChange; i++)
+            //    {
+            //        Tdk.TdkInterface.ChangeFreq(0, tactor, 2500, pulseDuration);
+            //        Tdk.TdkInterface.ChangeFreq(0, 0xFF, 1500, pulseDuration);
+            //        Tdk.TdkInterface.ChangeSigSource(0, tactor, 0x03, 0);
+            //        toggleOn(0, startPulseBreak);
+            //        Tdk.TdkInterface.Pulse(0, tactor, pulseDuration, 0);
+            //    }
+            //}
+
+            #endregion Modulation Testing
+
             else
             {
                 string error = "\"" + typeOfChange + "\"" +
