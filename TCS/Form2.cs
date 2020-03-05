@@ -121,6 +121,8 @@ namespace TCS
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
+
+
             played = true;
             WarningsLabel.Text = "";
             this.startTime = DateTime.Now;
@@ -133,16 +135,17 @@ namespace TCS
             //tactors
             int tactor = currentCue.StartingTactorLocation;
             int tactor2 = currentCue.EndingTactorLocation;
+
             //motion tactors
             int firsttactor = currentCue.StartingTactorLocation;
             int secondtactor = currentCue.MiddleTactorLocation;
             int thirdtactor = currentCue.EndingTactorLocation;
+
             //parameters
             int frequency = currentCue.StartingFrequency;
             int pulseDuration = currentCue.StartingPulseDuration;
             int pulseDuration2 = currentCue.EndingPulseDuration;
             int gain = currentCue.StartingGain;
-
 
             int startPulseBreak = currentCue.StartingPulseDuration + currentCue.StartingISI;
             int endPulseBreak = currentCue.EndingPulseDuration + currentCue.EndingISI;
