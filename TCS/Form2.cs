@@ -320,9 +320,12 @@ namespace TCS
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        //change freq of only the first one???
-                        Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, frequency, pulseDuration);
-                        Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        //Tdk.TdkInterface.ChangeFreq(0, firsttactor, frequency, pulseDuration);
+                        //Tdk.TdkInterface.RampGain(0, firsttactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        //Tdk.TdkInterface.ChangeFreq(0, secondtactor, frequency, pulseDuration);
+                        //Tdk.TdkInterface.RampGain(0, secondtactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        //Tdk.TdkInterface.ChangeFreq(0, thirdtactor, frequency, pulseDuration);
+                        //Tdk.TdkInterface.RampGain(0, thirdtactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                         if (i == 0)
                             Tdk.TdkInterface.Pulse(0, firsttactor, pulseDuration, 0);
                         if (i == 1)
@@ -337,8 +340,12 @@ namespace TCS
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        Tdk.TdkInterface.ChangeFreq(0, currentCue.StartingTactorLocation, frequency, pulseDuration);
-                        Tdk.TdkInterface.RampGain(0, currentCue.StartingTactorLocation, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        //Tdk.TdkInterface.ChangeFreq(0, firsttactor, frequency, pulseDuration);
+                        //Tdk.TdkInterface.RampGain(0, firsttactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        //Tdk.TdkInterface.ChangeFreq(0, secondtactor, frequency, pulseDuration);
+                        //Tdk.TdkInterface.RampGain(0, secondtactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
+                        //Tdk.TdkInterface.ChangeFreq(0, thirdtactor, frequency, pulseDuration);
+                        //Tdk.TdkInterface.RampGain(0, thirdtactor, gain, gain, pulseDuration, Tdk.TdkDefines.RampLinear, 0);
                         if (i == 0)
                             Tdk.TdkInterface.Pulse(0, firsttactor, pulseDuration, 0);
                         if (i == 1)
